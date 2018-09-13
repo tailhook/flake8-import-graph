@@ -1,0 +1,23 @@
+containers:
+
+  py3:
+    setup:
+    - !Alpine v3.8
+    - !Install [ca-certificates]
+    - !PipConfig { dependencies: true }
+    - !Py3Install [pip, flake8, pytest]
+    - !Sh "pip install -e ."
+
+commands:
+
+
+  test-py3: !Command
+    aliases: [test]
+    description: Run tests for py3
+    container: py3
+    run: [pytest]
+
+  _bulk: !Command
+    description: Run arbitrary bulk command (maintains version number)
+    container: doc
+    run: [bulk]

@@ -1,0 +1,10 @@
+/src/*.egg-info
+/.vagga
+/.pytest_cache
+/doc/_build
+__pycache__
+*.pyc
+*.pyo
+/tmp
+/dist
+/build
