@@ -5,6 +5,10 @@ A flake8 lint to enforce that some modules can't be imported from other
 modules.
 
 
+::
+
+    pip install flake8-import-graph==0.1.0
+
 License
 =======
 

@@ -1,0 +1,4 @@
+[flake8]
+deny-imports =
+    file1=file2
+    file2=file1

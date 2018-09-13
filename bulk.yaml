@@ -1,0 +1,12 @@
+minimum-bulk: v0.4.1
+
+versions:
+
+- file: setup.py
+  regex: ^\s*version\s*=\s*["']([^"']+)["']
+
+- file: src/flake8_import_graph/__init__.py
+  regex: ^__version__\s*=\s*["']([^"']+)["']
+
+- file: README.rst
+  regex: flake8-import-graph==(\S+)

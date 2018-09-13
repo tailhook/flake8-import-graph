@@ -7,6 +7,10 @@ containers:
     - !PipConfig { dependencies: true }
     - !Py3Install [pip, flake8, pytest]
     - !Sh "pip install -e ."
+    - &bulk !Tar
+      url: "https://github.com/tailhook/bulk/releases/download/v0.4.12/bulk-v0.4.12.tar.gz"
+      sha256: 7deeb4895b3909afea46194ef01bafdeb30ff89fc4a7b6497172ba117734040e
+      path: /
 
 commands:
 
@@ -19,5 +23,5 @@ commands:
 
   _bulk: !Command
     description: Run arbitrary bulk command (maintains version number)
-    container: doc
+    container: py3
     run: [bulk]

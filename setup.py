@@ -21,7 +21,7 @@ setup(name='flake8-import-graph',
       ],
       entry_points={
           'flake8.extension': [
-              'IMP = flake8_import_graph:ImportGraphCheck',
+              'IMP = flake8_import_graph:ImportGraphChecker',
           ],
       },
       classifiers=[
