@@ -9,6 +9,19 @@ modules.
 
     pip install flake8-import-graph==0.1.0
 
+
+Configure it, by putting ``.flake8`` file in the package root:
+
+::
+
+    [flake8]
+    deny-imports =
+        # Don't allow models importing controllers
+        myapp.models=myapp.controllers
+        # Don't allow controllers to import sqlalchemy directly
+        myapp.controllers=sqlalchemy
+
+
 License
 =======
 
