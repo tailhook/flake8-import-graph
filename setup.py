@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.rst'), 'rt') as f:
     long_description = f.read()
 
 setup(name='flake8-import-graph',
-      version='0.1.2',
+      version='0.1.3',
       description="A flake8 lint to enforce that some modules "
                   "can't be imported from other modules.",
       author='Paul Colomiets',

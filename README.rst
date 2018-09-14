@@ -7,7 +7,7 @@ modules.
 
 ::
 
-    pip install flake8-import-graph==0.1.2
+    pip install flake8-import-graph==0.1.3
 
 
 Configure it, by putting ``.flake8`` file in the package root:
