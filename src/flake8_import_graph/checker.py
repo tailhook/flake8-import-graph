@@ -14,7 +14,7 @@ class ImportVisitor(ast.NodeVisitor):
         self.current_module = current_module
         mod_path = current_module.split('.')
         self.mod_path = mod_path
-        self.denied = [v for k, v in denied if is_prefix(mod_path, k)]
+        self.denied = [v for k, v in denied if is_prefix(k, mod_path)]
 
     def visit_Import(self, node):  # noqa: N802
         for name in node.names:
@@ -34,15 +34,15 @@ class ImportVisitor(ast.NodeVisitor):
             mod_name = node.module
         if self.not_allowed(mod_name):
             self.dest.append((
-                'IMP001',
                 node.lineno, node.col_offset,
-                'Denied import {}'.format(name.name)))
+                'IMP001 Denied import {}'.format(mod_name),
+                'ImportGraphChecker'))
         for name in node.names:
             full = mod_name + '.' + name.name
             if self.not_allowed(full):
                 self.dest.append((
                     node.lineno, node.col_offset,
-                    'IMP001 Denied import {}'.format(name.name),
+                    'IMP001 Denied import {}'.format(full),
                     'ImportGraphChecker'))
 
 
@@ -65,7 +65,7 @@ class ImportGraphChecker:
             if os.path.exists(os.path.join(path, '.flake8')):
                 break
             dir, name = os.path.split(path)
-            mod_path.append(name)
+            mod_path.insert(0, name)
             path = dir
         self.module = '.'.join(mod_path)
 
